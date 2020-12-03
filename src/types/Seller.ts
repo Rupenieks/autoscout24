@@ -1,0 +1,1 @@
+export type Seller = "private" | "dealer" | "other";
