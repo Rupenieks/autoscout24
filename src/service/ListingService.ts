@@ -52,4 +52,3 @@ export class ListingService{
 	}
 }
 
-module.exports = ListingService;

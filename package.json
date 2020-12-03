@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "type": "module",
   "scripts": {
 	"start": "ts-node src/index.ts",
-	"test": "set TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'src/test/**/*.test.ts'"
+	"test": "mocha -r ts-node/register src/test/**/*.test.ts"
   },
   "author": "",
   "license": "ISC",

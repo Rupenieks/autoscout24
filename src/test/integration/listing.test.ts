@@ -2,20 +2,7 @@ import { ListingService } from "../../service/ListingService";
 
 const expect = require('chai').expect;
 
-describe('Listing Endpoint', function () {
-	
-	const listingService = new ListingService();
+describe('Listing integration tests', function () {
 	
 
-	beforeEach(function() {
-	  
-	})
-	
-	
-	it('should add numbers', function() {
-
-	})
-	
-
-	
   })
