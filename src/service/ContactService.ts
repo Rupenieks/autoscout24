@@ -31,7 +31,7 @@ export class ContactService {
 		return getAverage(listingPriceSum, topThirtyListings.length);
 	}
 
-	getTopFiveContactedListingsPerMonth(contacts: Contact[], listings: Listing[]) {
+	getTopFiveContactedListingsPerMonth(contacts: Contact[], listings: Listing[]) : MonthOutput[] {
 		// Convert UNIX Timestamps to readable month.year format.
 		const modifiedContacts = this.convertUnixToMonthYear(contacts);
 

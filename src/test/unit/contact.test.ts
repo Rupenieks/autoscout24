@@ -24,7 +24,7 @@ describe('Contact Service Unit Tests', () => {
 
 	describe('Get contact amount by listing ID from given contact array', () => {
 		it('Should return correct contact amount', () => {
-			const result = contactService.getContactAmountByListingId(1109 ,mockContacts);
+			const result = contactService.getContactAmountByListingId(1109, mockContacts);
 
 			expect(result).to.equal(3);
 		})

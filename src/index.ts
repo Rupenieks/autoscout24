@@ -1,5 +1,6 @@
 import { generateAvgListingSellPricePerSellerType, generatePercentualDistributionCarsByMake, generateTop5MostContactedListingPerMonth, generateTopThirtyPercentOfContactedListings } from './api/index';
-import { getContactsFromCsv, getListingsFromCsv } from './tools';
+import { getContactsFromCsv, getListingsFromCsv, outputCurrency } from './tools';
+import { MonthOutput } from './types';
 /**
  * Ronalds Upeniekes, Autoscout 24 Coding challenge
  * 
@@ -11,13 +12,21 @@ async function start() {
 	const listingsObjectArray = await getListingsFromCsv();
 	const contactObjectArray = await getContactsFromCsv();
 	
-	generateAvgListingSellPricePerSellerType(listingsObjectArray);
+	console.table(generateAvgListingSellPricePerSellerType(listingsObjectArray));
 	
-	generatePercentualDistributionCarsByMake(listingsObjectArray);
+	console.table(generatePercentualDistributionCarsByMake(listingsObjectArray));
 
-	generateTop5MostContactedListingPerMonth(contactObjectArray, listingsObjectArray);
+	//@ts-ignore
+	const top5MostContactedListings : MonthOutput[] = generateTop5MostContactedListingPerMonth(contactObjectArray, listingsObjectArray);
+	
+	top5MostContactedListings.forEach((outputItem : MonthOutput) => {
+		console.log('Month: ' + outputItem.date);
+		console.table(outputItem.listingOutput);
+	});
 
-	generateTopThirtyPercentOfContactedListings(contactObjectArray, listingsObjectArray);
+	console.table([{
+		average_selling_price: outputCurrency(generateTopThirtyPercentOfContactedListings(contactObjectArray, listingsObjectArray))
+	}]);
 }
 
 start();
