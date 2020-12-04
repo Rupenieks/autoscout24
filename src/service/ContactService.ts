@@ -1,6 +1,5 @@
-import { outputCurrency, getCountByListingId, getAverage } from "../tools";
+import { outputCurrency, getAverage } from "../tools";
 import { Contact, Listing, MonthOutput } from "../types";
-import { Top5ContactedListingsPerMonthOutput } from '../types/Output';
 
 export class ContactService {
 	constructor() { }
